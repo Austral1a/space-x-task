@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import { FunctionComponent } from 'react';
+import { FunctionComponent, memo } from 'react';
 
 import { Shipment } from '../../queries';
 import { ShipmentItem } from './components/ShipmentItem';
@@ -10,20 +10,22 @@ export interface ShipmentListProps {
     className?: string;
 }
 
-export const ShipmentList: FunctionComponent<ShipmentListProps> = ({
-    shipmentListItems,
-    className,
-}) => {
-    return (
-        <div className={classnames(className, classes['shipment-list'])}>
-            <h4>SHIPMENT LIST</h4>
-            <div className={classes['shipment-list__list']}>
-                {shipmentListItems?.map((item) => {
-                    return (
-                        <ShipmentItem key={item.name} itemLabel={item.name} />
-                    );
-                })}
+export const ShipmentList: FunctionComponent<ShipmentListProps> = memo(
+    ({ shipmentListItems, className }) => {
+        return (
+            <div className={classnames(className, classes['shipment-list'])}>
+                <h4>SHIPMENT LIST</h4>
+                <div className={classes['shipment-list__list']}>
+                    {shipmentListItems?.map((item) => {
+                        return (
+                            <ShipmentItem
+                                key={item.name}
+                                itemLabel={item.name}
+                            />
+                        );
+                    })}
+                </div>
             </div>
-        </div>
-    );
-};
+        );
+    }
+);

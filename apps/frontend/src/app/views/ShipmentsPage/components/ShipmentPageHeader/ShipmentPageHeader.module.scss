@@ -3,6 +3,7 @@
 .shipment-page {
     &__header {
         @include flex-row(center, flex-start);
+
         padding-top: 40px;
         padding-left: 40px;
 
@@ -12,8 +13,42 @@
             padding-right: 50px;
         }
 
-        &-search-input {
-            grid-area: search;
+        &-menu-section {
+            i {
+                display: none;
+            }
+
+            width: 100%;
+        }
+
+        @media screen and (max-width: 772px) {
+            width: 100%;
+            min-width: 530px;
+            flex-wrap: wrap;
+
+            padding-right: 50px;
+
+            &-logo {
+                padding-bottom: 34px;
+            }
+
+            &-search-input {
+                width: 100%;
+            }
+
+            &-menu-section {
+                @include flex-row(center, space-between);
+
+                i {
+                    display: inline;
+                    font-size: 30px;
+                    color: #ffffff;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
         }
     }
 }

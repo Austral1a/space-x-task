@@ -19,6 +19,10 @@
         padding-top: 40px;
         padding-left: 40px;
         padding-right: 50px;
+
+        &-m {
+            display: none;
+        }
     }
 
     &__content {
@@ -33,5 +37,98 @@
             padding-left: 0;
         }
     }
+
+    @media screen and (max-width: 772px) {
+        .shipment-page {
+            &__shipments-list {
+                display: none;
+
+                &-m {
+                    display: block;
+
+                    margin-top: 30px;
+                }
+
+                &-container-m {
+                    z-index: 10000;
+
+                    background-color: #1b1d22;
+
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+
+                    padding: 20px;
+
+                    width: 100%;
+                    height: 100%;
+
+                    &-header {
+                        @include flex-row(center, space-between);
+
+                        i {
+                            display: inline;
+                            font-size: 30px;
+                            color: #ffffff;
+
+                            &:hover {
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &__body {
+                min-width: 530px;
+            }
+
+            &__content {
+                &-container {
+                    padding-left: 40px;
+
+                    width: 100%
+                }
+            }
+        }
+    }
 }
 
+/*
+
+@import 'styles/mixins';
+
+.shipment-page {
+    display: grid;
+    grid-template-areas:
+        "logo search"
+        "shipment-list details";
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 50px 1fr;
+
+    width: 100%;
+    height: 100%;
+
+    &__body {
+        @include flex-row(unset, flex-start);
+
+        width: 100%;
+        height: 100%;
+    }
+
+    &__shipments-list {
+        grid-area: shipment-list;
+
+
+    }
+
+    &__content {
+        height: 100%;
+
+        &-container {
+            grid-area: details;
+
+        }
+    }
+}
+*/

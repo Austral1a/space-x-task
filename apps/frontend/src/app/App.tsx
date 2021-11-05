@@ -4,8 +4,13 @@ import { Route, Routes } from 'react-router-dom';
 
 import { ShipmentsPage } from './views/ShipmentsPage';
 
-const queryClient = new QueryClient();
-
+const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            refetchOnWindowFocus: false,
+        },
+    },
+});
 export const App: FunctionComponent = () => {
     return (
         <QueryClientProvider client={queryClient}>

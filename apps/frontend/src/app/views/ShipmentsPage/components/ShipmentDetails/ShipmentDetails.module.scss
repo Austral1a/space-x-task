@@ -49,4 +49,29 @@
             line-height: 66px;
         }
     }
+
+    @media screen and (max-width: 772px) {
+        .shipment-details {
+            &__company {
+                &-name {
+                    line-height: 38px;
+                    font-size: 28px;
+                }
+
+                &-cargo-bays-number-title {
+                    font-size: 187px;
+                    line-height: 20px
+                }
+
+                &-cargo-bays-number {
+                    font-size: 34px
+                }
+            }
+
+            &__foooter {
+                text-align: center;
+                padding-top: 40px;
+            }
+        }
+    }
 }

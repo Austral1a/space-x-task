@@ -7,11 +7,11 @@ import {
 } from 'react';
 import { useQuery } from 'react-query';
 import { useLocation } from 'react-router-dom';
-
 import {
     ShipmentDetails,
     ShipmentList,
     ShipmentPageHeader,
+    SPACE_X_LOGO_URL,
 } from './components';
 import { getShipmentsList, Shipment } from './queries';
 import classes from './ShipmentsPage.module.scss';
@@ -43,6 +43,8 @@ export const ShipmentsPage: FunctionComponent = () => {
         setShipmentList(newList);
     }, []);
 
+    const [isPanelOpened, setIsPanelOpened] = useState(false);
+
     useEffect(() => {
         if (!data?.data.shipments) {
             return;
@@ -54,12 +56,46 @@ export const ShipmentsPage: FunctionComponent = () => {
     return (
         <div className={classes['shipment-page']}>
             <ShipmentPageHeader
+                togglePanel={() => setIsPanelOpened(!isPanelOpened)}
                 shipmentList={data?.data.shipments}
                 setNewShipmentList={handleSetNewShipmentList}
             />
 
             <div className={classes['shipment-page__body']}>
-                <div></div>
+                {isPanelOpened && (
+                    <div
+                        className={
+                            classes['shipment-page__shipments-list-container-m']
+                        }
+                    >
+                        <div
+                            className={
+                                classes[
+                                    'shipment-page__shipments-list-container-m-header'
+                                ]
+                            }
+                        >
+                            <img
+                                src={SPACE_X_LOGO_URL}
+                                alt="SpaceX Logo"
+                                className={
+                                    classes['shipment-page__header-logo']
+                                }
+                            />
+                            <i
+                                onClick={() => setIsPanelOpened(false)}
+                                className={'pi pi-times'}
+                            />
+                        </div>
+                        <ShipmentList
+                            className={
+                                classes['shipment-page__shipments-list-m']
+                            }
+                            shipmentListItems={shipmentList}
+                        />
+                    </div>
+                )}
+
                 <ShipmentList
                     className={classes['shipment-page__shipments-list']}
                     shipmentListItems={shipmentList}

@@ -48,6 +48,8 @@
                 &-m {
                     display: block;
 
+                    overflow: auto;
+
                     margin-top: 30px;
                 }
 
@@ -55,6 +57,8 @@
                     z-index: 10000;
 
                     background-color: #1b1d22;
+
+                    overflow: auto;
 
                     position: absolute;
                     top: 0;

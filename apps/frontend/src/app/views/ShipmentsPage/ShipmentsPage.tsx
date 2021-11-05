@@ -7,6 +7,7 @@ import {
 } from 'react';
 import { useQuery } from 'react-query';
 import { useLocation } from 'react-router-dom';
+
 import {
     ShipmentDetails,
     ShipmentList,

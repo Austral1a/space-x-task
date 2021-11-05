@@ -8,5 +8,7 @@
     &__list {
         @include flex-column();
         gap: 12px;
+
+        overflow: auto;
     }
 }

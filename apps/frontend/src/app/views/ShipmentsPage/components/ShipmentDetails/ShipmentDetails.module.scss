@@ -1,0 +1,52 @@
+@import 'styles/mixins';
+
+.shipment-details {
+    background: linear-gradient(
+        124.01deg,
+        #2d3038 0%,
+        rgba(45, 48, 56, 0) 100%
+    );
+    border-radius: 30px;
+
+    padding: 29px 51px;
+
+    @include flex-column(flex-start, flex-start);
+    gap: 30px;
+
+    &__company {
+        &-name {
+            font-weight: 400;
+            line-height: 74px;
+            font-size: 4rem;
+            color: #ffffff;
+        }
+
+        &-cargo-bays-number-title {
+            font-size: 2.125rem;
+            line-height: 2.75rem;
+        }
+
+        &-cargo-bays-number {
+            font-size: 3.5rem;
+        }
+    }
+
+    &__body {
+        p {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__footer {
+        h1 {
+            line-height: 44px;
+        }
+
+        p {
+            font-size: 3.5rem;
+            color: #ffffff;
+
+            line-height: 66px;
+        }
+    }
+}

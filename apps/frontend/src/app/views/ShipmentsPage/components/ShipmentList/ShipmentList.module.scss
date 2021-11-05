@@ -1,0 +1,12 @@
+@import 'styles/mixins';
+
+.shipment-list {
+    h4 {
+        line-height: 38px;
+    }
+
+    &__list {
+        @include flex-column();
+        gap: 12px;
+    }
+}

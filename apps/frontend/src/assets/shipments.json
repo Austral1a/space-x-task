@@ -1,0 +1,22 @@
+{
+    "shipments": [
+        {
+            "id": "d12312asda",
+            "name": "Amazon",
+            "email": "amazon@email.com",
+            "boxes": "4,3,2,2.2"
+        },
+        {
+            "id": "d12312asda",
+            "name": "LinkedIn",
+            "email": "linkedIn@email.com",
+            "boxes": "4,3,2,2.7"
+        },
+        {
+            "id": "d12312asda",
+            "name": "Google",
+            "email": "google@email.com",
+            "boxes": "4,3,2,2.2"
+        }
+    ]
+}

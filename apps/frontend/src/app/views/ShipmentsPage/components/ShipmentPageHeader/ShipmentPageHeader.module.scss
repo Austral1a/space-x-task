@@ -1,0 +1,19 @@
+@import 'styles/mixins';
+
+.shipment-page {
+    &__header {
+        @include flex-row(center, flex-start);
+        padding-top: 40px;
+        padding-left: 40px;
+
+        &-logo {
+            grid-area: logo;
+
+            padding-right: 50px;
+        }
+
+        &-search-input {
+            grid-area: search;
+        }
+    }
+}

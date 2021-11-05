@@ -1,7 +1,9 @@
 {
-  "version": 2,
-  "projects": {
-    "frontend": "apps/frontend",
-    "frontend-e2e": "apps/frontend-e2e"
-  }
+    "version": 2,
+    "projects": {
+        "api-client": "libs/api-client",
+        "components": "libs/components",
+        "frontend": "apps/frontend",
+        "frontend-e2e": "apps/frontend-e2e"
+    }
 }

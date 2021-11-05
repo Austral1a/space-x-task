@@ -4,3 +4,5 @@ To run project
 3) npm start
 
 To add additional data - go to **'apps/frontend/src/assets/shipments.json**'
+
+urls: 1) /shipments

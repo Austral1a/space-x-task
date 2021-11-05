@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import "styles/vars";
 @import 'libs/components/src/theme/theme';
 
 html,
@@ -16,7 +16,7 @@ body {
 
     box-sizing: border-box;
 
-    color: #979797;
+    color: $gray;
 }
 
 #root {

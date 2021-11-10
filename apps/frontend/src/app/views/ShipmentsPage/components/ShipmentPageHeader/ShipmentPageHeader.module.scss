@@ -14,6 +14,13 @@
             padding-right: 50px;
         }
 
+        @media screen and (max-width: 812px) {
+            padding-top: 24px;
+
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
         &-menu-section {
             i {
                 display: none;
@@ -45,8 +52,6 @@
         @media screen and (max-width: 812px) {
             width: 100%;
             flex-wrap: wrap;
-
-            padding-right: 50px;
 
             &-search-input {
                 min-width: 100%;

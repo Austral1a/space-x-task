@@ -1,6 +1,13 @@
 import { Input } from '@shared/components';
 import classnames from 'classnames';
-import { FunctionComponent, useEffect, useMemo, useState } from 'react';
+import {
+    ChangeEvent,
+    FunctionComponent,
+    useCallback,
+    useEffect,
+    useMemo,
+    useState,
+} from 'react';
 
 import { Shipment } from '../../queries';
 import classes from './ShipmentDetails.module.scss';
@@ -57,6 +64,17 @@ export const ShipmentDetails: FunctionComponent<ShipmentDetailsProps> = ({
         return cargoBoxesAmount;
     }, [cargoBoxesAmount]);
 
+    const handleChangeCargoBoxesInput = useCallback(
+        (e: ChangeEvent<HTMLInputElement>) => {
+            const filteredValue = e.target.value.replace(/[^0-9.,]}/, '');
+
+            setCargoBoxesInputVal(filteredValue);
+
+            setCargoBoxesAmount(calculateCargoBoxesNumber(filteredValue));
+        },
+        []
+    );
+
     return (
         <div className={classnames(className, classes['shipment-details'])}>
             <div className={classes['shipment-details__heading']}>
@@ -69,18 +87,7 @@ export const ShipmentDetails: FunctionComponent<ShipmentDetailsProps> = ({
             <div className={classes['shipment-details__body']}>
                 <p>CARGO BOXES</p>
                 <Input
-                    onChange={(e) => {
-                        const filteredValue = e.target.value.replace(
-                            /[^0-9.,]}/,
-                            ''
-                        );
-
-                        setCargoBoxesInputVal(filteredValue);
-
-                        setCargoBoxesAmount(
-                            calculateCargoBoxesNumber(filteredValue)
-                        );
-                    }}
+                    onChange={handleChangeCargoBoxesInput}
                     className={classes['shipment-details__input']}
                     value={cargoBoxesInputVal}
                     type="text"

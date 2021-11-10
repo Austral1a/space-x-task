@@ -1,5 +1,5 @@
 import { Input } from '@shared/components';
-import { FunctionComponent, useState } from 'react';
+import { ChangeEvent, FunctionComponent, useCallback, useState } from 'react';
 
 import { Shipment } from '../../queries';
 import classes from './ShipmentPageHeader.module.scss';
@@ -19,6 +19,21 @@ export const ShipmentPageHeader: FunctionComponent<ShipmentPageHeaderProps> = ({
 }) => {
     const [companyNameInputVal, setCompanyNameInputVal] = useState('');
 
+    const handleChangeCompanyNameInput = useCallback(
+        (e: ChangeEvent<HTMLInputElement>) => {
+            setCompanyNameInputVal(e.target.value);
+
+            const newShipmentList = shipmentList?.filter((shipment) => {
+                return shipment.name
+                    .toLocaleLowerCase()
+                    .startsWith(e.target.value);
+            });
+
+            setNewShipmentList(newShipmentList as Shipment[]);
+        },
+        [setNewShipmentList, shipmentList]
+    );
+
     return (
         <div className={classes['shipment-page__header']}>
             <div className={classes['shipment-page__header-menu-section']}>
@@ -32,17 +47,7 @@ export const ShipmentPageHeader: FunctionComponent<ShipmentPageHeaderProps> = ({
             <Input
                 className={classes['shipment-page__header-search-input']}
                 placeholder={'Search'}
-                onChange={(e) => {
-                    setCompanyNameInputVal(e.target.value);
-
-                    const newShipmentList = shipmentList?.filter((shipment) => {
-                        return shipment.name
-                            .toLocaleLowerCase()
-                            .startsWith(e.target.value);
-                    });
-
-                    setNewShipmentList(newShipmentList as Shipment[]);
-                }}
+                onChange={handleChangeCompanyNameInput}
                 value={companyNameInputVal}
                 withIcon={true}
                 iconName={'pi pi-search'}

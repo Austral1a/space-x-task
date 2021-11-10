@@ -54,6 +54,36 @@ export const ShipmentsPage: FunctionComponent = () => {
         handleSetNewShipmentList(data.data.shipments);
     }, [data?.data.shipments, handleSetNewShipmentList]);
 
+    const shipmentListMobile = useMemo(() => {
+        return (
+            <div
+                className={classes['shipment-page__shipments-list-container-m']}
+            >
+                <div
+                    className={
+                        classes[
+                            'shipment-page__shipments-list-container-m-header'
+                        ]
+                    }
+                >
+                    <img
+                        src={SPACE_X_LOGO_URL}
+                        alt="SpaceX Logo"
+                        className={classes['shipment-page__header-logo']}
+                    />
+                    <i
+                        onClick={() => setIsPanelOpened(false)}
+                        className={'pi pi-times'}
+                    />
+                </div>
+                <ShipmentList
+                    className={classes['shipment-page__shipments-list-m']}
+                    shipmentListItems={shipmentList}
+                />
+            </div>
+        );
+    }, [shipmentList]);
+
     return (
         <div className={classes['shipment-page']}>
             <ShipmentPageHeader
@@ -63,39 +93,7 @@ export const ShipmentsPage: FunctionComponent = () => {
             />
 
             <div className={classes['shipment-page__body']}>
-                {isPanelOpened && (
-                    <div
-                        className={
-                            classes['shipment-page__shipments-list-container-m']
-                        }
-                    >
-                        <div
-                            className={
-                                classes[
-                                    'shipment-page__shipments-list-container-m-header'
-                                ]
-                            }
-                        >
-                            <img
-                                src={SPACE_X_LOGO_URL}
-                                alt="SpaceX Logo"
-                                className={
-                                    classes['shipment-page__header-logo']
-                                }
-                            />
-                            <i
-                                onClick={() => setIsPanelOpened(false)}
-                                className={'pi pi-times'}
-                            />
-                        </div>
-                        <ShipmentList
-                            className={
-                                classes['shipment-page__shipments-list-m']
-                            }
-                            shipmentListItems={shipmentList}
-                        />
-                    </div>
-                )}
+                {isPanelOpened && shipmentListMobile}
 
                 <ShipmentList
                     className={classes['shipment-page__shipments-list']}

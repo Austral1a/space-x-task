@@ -18,10 +18,9 @@
     &__shipments-list {
         min-width: 300px;
 
-        padding-top: 40px;
-        padding-left: 40px;
-        padding-right: 50px;
+        padding: 40px 50px 40px 40px;
 
+        overflow: auto;
         &-m {
             display: none;
         }

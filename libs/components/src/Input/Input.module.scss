@@ -32,7 +32,8 @@
         }
     }
 
-    &::-webkit-input-placeholder {
+    &::placeholder {
         color: $super-dark;
+        opacity: 1;
     }
 }

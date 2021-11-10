@@ -20,11 +20,30 @@
             }
 
             width: 100%;
+
+            @media screen and (max-width: 812px) {
+                @include flex-row(center, space-between);
+
+                padding-right: 0;
+
+                i {
+                    display: inline;
+                    font-size: 30px;
+                    color: $snow;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
         }
 
-        @media screen and (max-width: 772px) {
+        &-search-input {
+            min-width: 320px;
+        }
+
+        @media screen and (max-width: 812px) {
             width: 100%;
-            min-width: 530px;
             flex-wrap: wrap;
 
             padding-right: 50px;
@@ -34,11 +53,15 @@
             }
 
             &-search-input {
-                width: 100%;
+                min-width: 100%;
             }
 
             &-menu-section {
                 @include flex-row(center, space-between);
+
+                img {
+                    padding-right: 0;
+                }
 
                 i {
                     display: inline;

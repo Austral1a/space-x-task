@@ -32,7 +32,6 @@
 
         &-container {
             width: calc(100% - 300px);
-            min-width: 450px;
             height: 100%;
 
             padding: 32px 50px;
@@ -40,7 +39,7 @@
         }
     }
 
-    @media screen and (max-width: 772px) {
+    @media screen and (max-width: 812px) {
         .shipment-page {
             &__shipments-list {
                 display: none;
@@ -86,12 +85,12 @@
             }
 
             &__body {
-                min-width: 530px;
+                width: 100%;
             }
 
             &__content {
                 &-container {
-                    padding-left: 40px;
+                    padding: 40px;
 
                     width: 100%
                 }

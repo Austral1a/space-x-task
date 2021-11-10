@@ -12,7 +12,6 @@
     padding: 29px 51px;
 
     @include flex-column(flex-start, flex-start);
-    gap: 30px;
 
     &__company {
         &-name {
@@ -20,6 +19,10 @@
             line-height: 74px;
             font-size: 4rem;
             color: $snow;
+        }
+
+        p {
+            line-height: 24px;
         }
 
         &-cargo-bays-number-title {
@@ -30,16 +33,50 @@
         &-cargo-bays-number {
             font-size: 3.5rem;
         }
+
+        @media screen and (max-width: 812px) {
+            &-name {
+                line-height: 38px;
+                font-size: 28px;
+            }
+
+            &-cargo-bays-number-title {
+                font-size: 187px;
+                line-height: 20px
+            }
+
+            &-cargo-bays-number {
+                font-size: 34px
+            }
+        }
+    }
+
+    &__input {
+        width: 320px;
+
+        @media screen and (max-width: 812px) {
+            width: 100%;
+        }
     }
 
     &__body {
+        width: 100%;
+
+        padding-top: 30px;
+
         p {
             margin-bottom: 10px;
+            line-height: 24px;
         }
     }
 
     &__footer {
+        width: 100%;
+
+        padding-top: 30px;
+
         h1 {
+            font-size: 34px;
             line-height: 44px;
         }
 
@@ -49,30 +86,23 @@
 
             line-height: 66px;
         }
+
+        @media screen and (max-width: 812px) {
+            text-align: center;
+
+            h2 {
+                font-size: 18px;
+            }
+
+            p {
+                font-size: 34px;
+            }
+
+            padding-top: 40px;
+        }
     }
 
-    @media screen and (max-width: 772px) {
-        .shipment-details {
-            &__company {
-                &-name {
-                    line-height: 38px;
-                    font-size: 28px;
-                }
-
-                &-cargo-bays-number-title {
-                    font-size: 187px;
-                    line-height: 20px
-                }
-
-                &-cargo-bays-number {
-                    font-size: 34px
-                }
-            }
-
-            &__foooter {
-                text-align: center;
-                padding-top: 40px;
-            }
-        }
+    @media screen and (max-width: 812px) {
+        padding: 20px;
     }
 }

@@ -81,6 +81,7 @@ export const ShipmentDetails: FunctionComponent<ShipmentDetailsProps> = ({
                             calculateCargoBoxesNumber(filteredValue)
                         );
                     }}
+                    className={classes['shipment-details__input']}
                     value={cargoBoxesInputVal}
                     type="text"
                 />

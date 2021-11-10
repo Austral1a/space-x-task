@@ -48,16 +48,14 @@
 
             padding-right: 50px;
 
-            &-logo {
-                padding-bottom: 34px;
-            }
-
             &-search-input {
                 min-width: 100%;
             }
 
             &-menu-section {
                 @include flex-row(center, space-between);
+
+                padding-bottom: 34px;
 
                 img {
                     padding-right: 0;
